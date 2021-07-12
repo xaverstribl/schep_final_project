@@ -2,7 +2,6 @@
 
 function Splitter {
 
-	## comment
 	:
 
 }
