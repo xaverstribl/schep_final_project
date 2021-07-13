@@ -3,9 +3,11 @@
 function Splitter {
 
 	## check that given argument is a existing directory
-	echo ${1}
+	[[ $# -eq 1 ]] || { echo "Error: wrong number of arguments"; return 1; }
+	[[ -d ${1} ]] || { echo "Error: given directory does not exist"; return 2; }
 	
 	## split into seperate files
+	## 1
 	(
 	cd ${1}
 	cd ./0/
@@ -14,9 +16,7 @@ function Splitter {
 		lines=($(echo $(grep -n BEGINNINGOFEVENT HIJING_LBF_test_small.out | awk 'BEGIN {FS=":"}{print $1}') | awk '{print $i}'))
 	done
 	
-	local last_line=$(wc -l HIJING_LBF_test_small.out)
-	
-	echo ${last_line}
+	local last_line=$(wc -l HIJING_LBF_test_small.out | awk '{print $1}')
 	
 	sed -n ${lines[0]},${lines[1]}p HIJING_LBF_test_small.out > event_0.dat
 	sed -n ${lines[1]},${lines[2]}p HIJING_LBF_test_small.out > event_1.dat
