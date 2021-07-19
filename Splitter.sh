@@ -8,12 +8,14 @@ function Splitter {
 	local lastLine
 	local dir
 	#local counter
-	#local numberCPUs=$(nproc)
+	#local cpus=$(nproc)
 	
 	while read dir; do
 	
-		## start subshell
-		#[[ ${counter} -ge ${numberCPUs} ]] && wait && counter=0
+		## check usage of cpus
+		#[[ ${counter} -lt ${numberCPUs} ]] || wait && counter=0 && echo "max cpu"
+
+		## start subshells
 		(
 		
 		## get lines of events
@@ -35,10 +37,12 @@ function Splitter {
 		sed -n ${eventLines[9]},${lastLine}p ${dir}/HIJING_LBF_test_small.out > ${dir}/event_9.dat
 		
 		) &
+		
 		#(( counter++ ))
+
 	done < <(find ${topDir} -mindepth 1 -maxdepth 1 -type d)
 	
-	#wait
+	wait
 	return 0
 
 }
