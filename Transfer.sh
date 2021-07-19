@@ -32,4 +32,4 @@ function Transfer {
 
 	return 0
 
-}
+} >> output.log

@@ -10,6 +10,6 @@ int importASCIIfileIntoTTree(const char* filename) {
 	tree->Write();
 	file->Close();
 
-	return 0; 
+	return 0;
 
 }

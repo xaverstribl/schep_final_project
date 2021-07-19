@@ -7,6 +7,7 @@ function Analysis {
 	local dir
 	local file
 
+	{
 	while read dir; do
 		
 		## start subshells
@@ -26,6 +27,9 @@ function Analysis {
 	wait
 
 	root -l -b -q fileMerger.C\(\"${topDir}\"\)
+	} >> output.log
+	
+	root -l -b -q Final.C
 
 	return 0
 

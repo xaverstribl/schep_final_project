@@ -22,7 +22,7 @@ int readDataFromTTree(const char* filename) {
 
 		if(!tree || strcmp(tree->ClassName(),"TTree")) // make sure the pointer is valid, and it points to TTree
 		{
-			cout<<Form("%s is not TTree!",lofk->At(i)->GetName())<<endl; 
+			cout << Form("%s is not TTree!",lofk->At(i)->GetName()) << endl; 
 			continue;
 		}
 
@@ -63,7 +63,7 @@ int readDataFromTTree(const char* filename) {
 
 	} // for(Int_t i=0; i<lofk->GetEntries(); i++)
 
-	cout << "Total number of particles: " << entries << endl;
+	//cout << "Total number of particles: " << entries << endl;
 	histProton->Write(histProton->GetName(),TObject::kSingleKey+TObject::kWriteDelete);
 	histPion->Write(histPion->GetName(),TObject::kSingleKey+TObject::kWriteDelete);
 	histKaon->Write(histKaon->GetName(),TObject::kSingleKey+TObject::kWriteDelete);
