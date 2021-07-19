@@ -24,9 +24,9 @@ int Final() {
 	TCanvas *c1 = new TCanvas("c1","p_T");
 	c1->Divide(3,1);
 	c1->cd(1);
-	histProton->Draw();
+	histPion->Draw();
 	c1->cd(2);
-	histProton->Draw();
+	histKaon->Draw();
 	c1->cd(3);
 	histProton->Draw();
 	c1->Update();
