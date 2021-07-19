@@ -9,9 +9,9 @@ int readDataFromTTree(const char* filename) {
 	Double_t p_T=0.;
 
 	// // create histograms
-	TH1F *histProton = new TH1F("histProton","Proton: p_T [GeV/c]",200,0,40);
-	TH1F *histPion = new TH1F("histPion","Pion: p_T [GeV/c]",200,0,40);
-	TH1F *histKaon = new TH1F("histKaon","Kaon: p_T [GeV/c]",200,0,40);
+	TH1F *histProton = new TH1F("histProton","p_T (Proton)",200,0,40);
+	TH1F *histPion = new TH1F("histPion","p_t (Pion)",200,0,40);
+	TH1F *histKaon = new TH1F("histKaon","p_T (Kaon)",200,0,40);
 
 	TFile *file = new TFile(filename,"update"); // there are a few TTree's in this file, each corresponds to different event
 	TList *lofk = file->GetListOfKeys(); // standard ROOT stuff, to read all entries in the ROOT file

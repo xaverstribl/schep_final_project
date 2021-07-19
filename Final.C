@@ -15,13 +15,19 @@ int Final() {
 	TH1F *histPion = dynamic_cast<TH1F*>(file->Get("histPion"));
 	TH1F *histKaon = dynamic_cast<TH1F*>(file->Get("histKaon"));
 
-	// // scale x-axis
+	// // x-axis and y-axis stuff
 	histProton->GetXaxis()->SetRange(0,histProton->FindLastBinAbove(0.,1));
+	histProton->GetXaxis()->SetTitle("Energy [GeV/c]");
+	histProton->GetYaxis()->SetTitle("Counts");
 	histPion->GetXaxis()->SetRange(0,histPion->FindLastBinAbove(0.,1));
+	histPion->GetXaxis()->SetTitle("Energy [GeV/c]");
+	histPion->GetYaxis()->SetTitle("Counts");
 	histKaon->GetXaxis()->SetRange(0,histKaon->FindLastBinAbove(0.,1));
+	histKaon->GetXaxis()->SetTitle("Energy [GeV/c]");
+	histKaon->GetYaxis()->SetTitle("Counts");
 
 	// // canvas stuff, draw histograms
-	TCanvas *c1 = new TCanvas("c1","p_T");
+	TCanvas *c1 = new TCanvas("c1","p_T",2400,800);
 	c1->Divide(3,1);
 	c1->cd(1);
 	histPion->Draw();
