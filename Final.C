@@ -18,16 +18,22 @@ int Final() {
 	// // x-axis and y-axis stuff
 	histProton->GetXaxis()->SetRange(0,histProton->FindLastBinAbove(0.,1));
 	histProton->GetXaxis()->SetTitle("Energy [GeV/c]");
-	histProton->GetYaxis()->SetTitle("Counts");
+	//histProton->GetYaxis()->SetTitle("Counts");
+	//histProton->GetYaxis()->SetTitleOffset(1);
+	histProton->SetLineWidth(2);
 	histPion->GetXaxis()->SetRange(0,histPion->FindLastBinAbove(0.,1));
 	histPion->GetXaxis()->SetTitle("Energy [GeV/c]");
-	histPion->GetYaxis()->SetTitle("Counts");
+	//histPion->GetYaxis()->SetTitle("Counts");
+	//histProton->GetYaxis()->SetTitleOffset(1);
+	histPion->SetLineWidth(2);
 	histKaon->GetXaxis()->SetRange(0,histKaon->FindLastBinAbove(0.,1));
 	histKaon->GetXaxis()->SetTitle("Energy [GeV/c]");
-	histKaon->GetYaxis()->SetTitle("Counts");
+	//histKaon->GetYaxis()->SetTitle("Counts");
+	//histProton->GetYaxis()->SetTitleOffset(1);
+	histKaon->SetLineWidth(2);
 
 	// // canvas stuff, draw histograms
-	TCanvas *c1 = new TCanvas("c1","p_T",2400,800);
+	TCanvas *c1 = new TCanvas("c1","p_T",3600,1200);
 	c1->Divide(3,1);
 	c1->cd(1);
 	histPion->Draw();
